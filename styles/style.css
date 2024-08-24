@@ -1,3 +1,17 @@
+@font-face {
+    font-family: "Fraunces";
+    src: url(../fonts/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf);
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../fonts/Montserrat-VariableFont_wght.ttf);
+    font-weight: 100 900;
+    font-style: normal;
+}
+
 :root {
     --clr-white: hsl(0, 0%, 100%);
     --clr-cream: hsl(30, 38%, 92%);
@@ -6,7 +20,25 @@
     --clr-deep-aquamarine-900: hsl(158, 42%, 18%);
     --clr-gunmetal: hsl(212, 21%, 14%);
 
+    --ff-title: "Fraunces";
+    --ff-text: "Montserrat";
 
+    --fw-bold: 700;
+    --fw-normal: 500;
+
+    --fs-title: 32px;
+    --fs-text: 14px;
+    --fs-alt: 13px;
+    --fs-tag: 12px;
+
+    --lh-title: 32px;
+    --lh-text: 23px;
+
+    --ls-tag: 5px;
+
+    --spc-200: 16px;
+    --spc-300: 24px;
+    --spc-350: 28px;
 }
 
 *,
@@ -20,15 +52,16 @@
 body {
     display: grid;
     grid-template-rows: 1fr auto;
-    grid-template-columns: 0 1fr 0;
+    grid-template-columns: 1fr;
     grid-template-areas:
-        ". component ."
-        "footer footer footer";
+        "component"
+        "footer";
     min-height: 100vh;
     font-family: var(--ff-text);
     font-size: var(--fs-text);
+    font-weight: var(--fw-normal);
     line-height: var(--lh-text);
-    color: var(--clr-stone-600);
+    color: var(--clr-aurometal-saurus);
     background-color: var(--clr-cream);
 }
 
@@ -41,12 +74,97 @@ img {
 .product {
     grid-area: component;
     place-self: center;
+    margin-inline: var(--spc-200);
+    margin-block: var(--spc-350);
+    background-color: var(--clr-white);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 600px;
 }
 
 .product__image {
     width: 100%;
     aspect-ratio: 9 / 6;
     object-fit: cover;
+}
+
+.product__info {
+    --_p: 24px;
+    padding: var(--_p);
+}
+
+.product__tag {
+    --_mb: 12px;
+    font-size: var(--fs-tag);
+    line-height: normal;
+    letter-spacing: var(--ls-tag);
+    text-transform: uppercase;
+    margin-bottom: var(--_mb);
+}
+
+.product__title {
+    --_mb: 16px;
+    font-family: var(--ff-title);
+    font-size: var(--fs-title);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-title);
+    color: var(--clr-gunmetal);
+    margin-bottom: var(--_mb);
+}
+
+.product__description {
+    --_mb: 24px;
+    margin-bottom: var(--_mb);
+}
+
+.product__price {
+    --_mb: 20px;
+    display: flex;
+    gap: 20px;
+    font-family: var(--ff-title);
+    font-size: var(--fs-title);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-title);
+    color: var(--clr-deep-aquamarine-500);
+    margin-bottom: var(--_mb);
+}
+
+.product__price span {
+    display: inline-block;
+    font-family: var(--ff-text);
+    font-size: var(--fs-alt);
+    font-weight: var(--fw-normal);
+    color: var(--clr-aurometal-saurus);
+    text-decoration: line-through;
+}
+
+.product__add {
+    width: 100%;
+    height: 48px;
+    background-color: var(--clr-deep-aquamarine-500);
+    border: none;
+    border-radius: 8px;
+    font-family: var(--ff-text);
+    font-size: var(--fs-text);
+    font-weight: var(--fw-bold);
+    color: var(--clr-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 250ms ease-in-out;
+}
+
+.product__add:hover,
+.product__add:focus-visible {
+    background-color: var(--clr-deep-aquamarine-900);
+}
+
+.product__add img {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
 }
 
 /** FOOTER */

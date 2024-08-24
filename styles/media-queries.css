@@ -1,0 +1,30 @@
+@media (width >=600px) {
+    .product {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product__image {
+        height: 100%;
+    }
+
+    .product__info {
+        --_p: 32px;
+    }
+
+    .product__tag {
+        --_mb: 20px;
+    }
+
+    .product__title {
+        --_mb: 24px;
+    }
+
+    .product__description {
+        --_mb: 29px;
+    }
+
+    .product__price {
+        --_mb: 30px;
+    }
+}
